@@ -96,7 +96,6 @@ const Pagination = Object.create(null, {
    navGenerator: {
         value: function (){
             let nav = '';
-
             if(this.countPages <= 4){
                 let strHtml = '';
                 nav = document.createElement('div');
@@ -122,7 +121,6 @@ const Pagination = Object.create(null, {
                 nav.innerHTML = manyNav;
                 nav.querySelector('.num-end').addEventListener('click', () => setTimeout(this.manyNavEnd.bind(this, nav), 0));
                 nav.querySelector('.num-start').addEventListener('click', () => setTimeout(this.manyNavStart.bind(this, nav), 0));
-
             }
             this.shell.appendChild(nav);
         }
@@ -142,7 +140,7 @@ const Pagination = Object.create(null, {
        value: function (_shell = null, _wrapped = null, _countElements = null){
            if(_shell == null || _wrapped == null || _countElements == null){
                console.error('Вы ввели не все аргументы!');
-               return;
+               return -1;
            }
            this.shell = document.querySelector(_shell);
            this.wrapped = document.querySelector(_wrapped);
